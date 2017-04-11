@@ -14,7 +14,6 @@ public class HUD {
 		//Notese como podemos usar el metodo barrera 
 		//en la vida del jugador
 		VIDA = Juego.barrera(VIDA, 0, 101);
-		
 	}
 	
 	public void render(Graphics g){

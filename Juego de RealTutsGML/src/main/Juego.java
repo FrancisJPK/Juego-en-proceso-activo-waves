@@ -3,9 +3,12 @@ package main;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Label;
 import java.awt.image.BufferStrategy;
 import java.security.AlgorithmConstraints;
 import java.util.Random;
+
+import javax.swing.JLabel;
 
 public class Juego extends Canvas implements Runnable{
 
@@ -14,6 +17,8 @@ public class Juego extends Canvas implements Runnable{
 	public static int ANCHO = 800,ALTO = 600;
 	private String TITULO = "Mi primer juego";
 	private HUD hud;
+	public static int fpss;
+	private Random r;
 	
 	private Thread hilo;//este va a ser un "single threaded game" pero solo por su simplicidad
 	//no es recomendado usar un solo thread
@@ -30,20 +35,24 @@ public class Juego extends Canvas implements Runnable{
 		return ALTO;
 	}
 	//---------------------
-	//----------------------------------------------------------------------------------CONSTRUCTOR
+	//----------------------------------------------------------------------------------CONSTRUCTOR:
 	public Juego(){
 		manejador = new Handler();
 		
-		this.addKeyListener(new KeyInput(manejador));
+		this.addKeyListener(new Teclado(manejador));//le decimos a esta clase que se encargue de analizar si tocamos 
+		//alguna tecla
 		new Ventana(ANCHO, ALTO, TITULO, this);
 		
 		//HUD significa head-up display, una interfaz que se muestra siempre
 		//en el juego
 		hud = new HUD();
+		r = new Random();
 		
-		//objetos de juego, area de spawneo
+		//objetos de juego, spawneo de objetos
 		manejador.addObjeto(new Jugador(100,100,ID.Jugador, manejador));
-		manejador.addObjeto(new EnemigoBasico(ANCHO/2,ALTO/2,ID.EnemigoBasico));
+		for (int i = 0; i < 10 ; i++)
+		manejador.addObjeto(new EnemigoBasico(r.nextInt(ANCHO-64),r.nextInt(ALTO-64),ID.EnemigoBasico,manejador));
+		
 		
 	}//---------------------------------------------------------------------------------------------
 	
@@ -95,6 +104,7 @@ public class Juego extends Canvas implements Runnable{
 			if(System.currentTimeMillis() - timer > 1000) {
 			timer += 1000;
 			System.out.println("FPS: "+ frames); 
+			fpss = frames;
 			frames = 0; 
 			}
 		}
@@ -124,6 +134,7 @@ public class Juego extends Canvas implements Runnable{
 		g.fillRect(0, 0, ANCHO, ALTO);
 		
 		manejador.render(g);//renderizamos los objetos mediante el manejador
+		
 		hud.render(g);
 		
 		//------------------------------------------------------------------------------------------------

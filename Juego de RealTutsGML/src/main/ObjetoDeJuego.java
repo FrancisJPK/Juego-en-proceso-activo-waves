@@ -22,8 +22,7 @@ public abstract class ObjetoDeJuego {
 	//---------------------------------------------------METODOS QUE NUESTROS OBJETOS DE JUEGO NESESITAN:
 	public abstract void tick();
 	public abstract void render(Graphics g);
-	
-	public abstract Rectangle obtenerArea();
+	public abstract Rectangle obtenerArea();//hit box de los objetos (si tienen...)
 	//--------------------------------------------------------------------------------------------------
 	
 	//--------------------------------------METODOS QUE NUESTROS OBJETOS NO NECESITAN(setters y getters):

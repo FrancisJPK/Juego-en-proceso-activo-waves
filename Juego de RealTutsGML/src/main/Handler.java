@@ -9,7 +9,8 @@ import java.util.LinkedList;
 
 public class Handler {
 	//tengo que estudiar mas para entender esto, pero tengo entendido que es como una 
-	//lista de objetos (ObjetoDeJuego) y mediante ella vamos a añadir todos los objetos
+	//lista de objetos (ObjetoDeJuego) y a ella le vamos a añiadir todos los objetos
+	//manejados por el Handler(esta clase)
 	LinkedList<ObjetoDeJuego> objetos = new LinkedList<ObjetoDeJuego>();
 	
 	//------------------------------------------------------------------------METODO TICK:
@@ -18,7 +19,7 @@ public class Handler {
 			//variable temporal
 			ObjetoDeJuego objetoTemporal = objetos.get(i);
 			
-			objetoTemporal.tick();
+			objetoTemporal.tick();//llamamos al metodo tick del objeto que estemos prosesando en este momento
 			
 			if(objetoTemporal.x > Juego.getAncho()){
 				removeObjeto(objetoTemporal);
@@ -35,10 +36,9 @@ public class Handler {
 	//Objeto de juego
 	public void render(Graphics g){
 		for (int i = 0; i < objetos.size(); i++) {
-			//variable temporal 
 			ObjetoDeJuego objetoTemporal = objetos.get(i);
 			
-			objetoTemporal.render(g);
+			objetoTemporal.render(g);//llamamos al metodo render del objeto que estemos prosesando en este momento
 		}
 	}//--------------------------------------------------------------------------------
 	

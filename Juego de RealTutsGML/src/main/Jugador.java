@@ -41,6 +41,8 @@ public class Jugador extends ObjetoDeJuego{
 		y = Juego.barrera(y, 0, Juego.ALTO-60);
 		
 		colision();
+		
+		manejador.addObjeto(new Rastro(x,y,ID.Rastro,manejador,anchoJ,altoJ,Color.blue,0.05f));
 	}
 	
 	public void colision(){//--------------------------------------------------------METODO COLISION:
@@ -63,5 +65,7 @@ public class Jugador extends ObjetoDeJuego{
 	public void render(Graphics g) {
 		g.setColor(Color.blue);
 		g.fillRect(x, y, anchoJ, altoJ);
+		g.setColor(Color.white);
+		g.drawString("FPS="+Juego.fpss, anchoJ, altoJ);
 	}
 }
