@@ -50,7 +50,7 @@ public class Jugador extends ObjetoDeJuego{
 		for (int i = 0; i < manejador.objetos.size(); i++) {
 			ObjetoDeJuego temp = manejador.objetos.get(i);
 			//si el objeto temporal actual es de tipo enemigo
-			if(temp.getId() == ID.EnemigoBasico){
+			if(temp.getId() == ID.EnemigoBasico || temp.getId() == ID.EnemigoRapido){
 				//si las cajas de colisión de los dos se están chocando
 				if(obtenerArea().intersects(temp.obtenerArea())){
 					//restar 2 de vida
@@ -65,7 +65,5 @@ public class Jugador extends ObjetoDeJuego{
 	public void render(Graphics g) {
 		g.setColor(Color.blue);
 		g.fillRect(x, y, anchoJ, altoJ);
-		g.setColor(Color.white);
-		g.drawString("FPS="+Juego.fpss, anchoJ, altoJ);
 	}
 }

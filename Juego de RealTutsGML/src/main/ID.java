@@ -5,5 +5,6 @@ package main;
 public enum ID {
 	Jugador(),
 	EnemigoBasico(),
-	Rastro();
+	Rastro(),
+	EnemigoRapido();
 }

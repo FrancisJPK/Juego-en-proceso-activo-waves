@@ -27,6 +27,8 @@ public class Juego extends Canvas implements Runnable{
 	
 	private Handler manejador;//creamos el manejador de los objetos y lo incializamos en el constructor
 	
+	private Spawner spawner;
+	
 	//TEMPORAL
 	public static int getAncho(){
 		return ANCHO;
@@ -41,17 +43,17 @@ public class Juego extends Canvas implements Runnable{
 		
 		this.addKeyListener(new Teclado(manejador));//le decimos a esta clase que se encargue de analizar si tocamos 
 		//alguna tecla
-		new Ventana(ANCHO, ALTO, TITULO, this);
+		
+		new Ventana(ANCHO, ALTO, TITULO, this);//creamos una ventana
 		
 		//HUD significa head-up display, una interfaz que se muestra siempre
 		//en el juego
 		hud = new HUD();
+		spawner = new Spawner(manejador,hud);
 		r = new Random();
 		
 		//objetos de juego, spawneo de objetos
 		manejador.addObjeto(new Jugador(100,100,ID.Jugador, manejador));
-		for (int i = 0; i < 10 ; i++)
-		manejador.addObjeto(new EnemigoBasico(r.nextInt(ANCHO-64),r.nextInt(ALTO-64),ID.EnemigoBasico,manejador));
 		
 		
 	}//---------------------------------------------------------------------------------------------
@@ -115,6 +117,7 @@ public class Juego extends Canvas implements Runnable{
 	public void tick(){
 		manejador.tick();
 		hud.tick();
+		spawner.tick();
 	}//---------------------------------------------------------------------------------------
 	
 	//--------------------------------------------------------------------------METODO RENDER

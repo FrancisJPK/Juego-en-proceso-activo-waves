@@ -5,18 +5,18 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.Random;
 
-public class EnemigoBasico extends ObjetoDeJuego{
+public class EnemigoRapido extends ObjetoDeJuego{
 
 	private int anchoE = 24;
 	private int altoE = 24;
 	private Random r = new Random();
 	private Handler manejador;
 	
-	public EnemigoBasico(int x,int y,ID id,Handler manejador){
+	public EnemigoRapido(int x,int y,ID id,Handler manejador){
 		super(x,y,id);
 		
 		setVelX(2);
-		setVelY(2);
+		setVelY(9);
 		
 		this.manejador = manejador;
 	}
@@ -40,12 +40,12 @@ public class EnemigoBasico extends ObjetoDeJuego{
 			velY *= -1;
 		}
 		if(cont % 3 == 0)
-		manejador.addObjeto(new Rastro(x+6,y+6,ID.Rastro,manejador,altoE/2,anchoE/2,Color.red,0.01f));
+		manejador.addObjeto(new Rastro(x+6,y+6,ID.Rastro,manejador,altoE/2,anchoE/2,Color.cyan,0.01f));
 		
 	}
 
 	public void render(Graphics g) {
-		g.setColor(Color.red);
+		g.setColor(Color.cyan);
 		g.fillOval(x, y, anchoE, altoE);
 	}
 	
