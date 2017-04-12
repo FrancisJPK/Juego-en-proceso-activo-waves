@@ -1,4 +1,4 @@
-# Juego-en-proceso-activo-waves
+# WAVES! alpha 0.0.1
 Es un juego en el que el objetivo principal es esquivar unos cubos que rebotan en las paredes. Habrá distintos tipos de enemigos y distintos niveles de dificultad. Se añadira un sistema de puntaje complejo en un futuro... Posible añadidura de multijugador en la primera release estable (no beta ni alpha) ;)
 no hay mas informacion por ahora
 -|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|UPDATES:
