@@ -6,5 +6,6 @@ public enum ID {
 	Jugador(),
 	EnemigoBasico(),
 	Rastro(),
+	EnemigoInteligente,
 	EnemigoRapido();
 }

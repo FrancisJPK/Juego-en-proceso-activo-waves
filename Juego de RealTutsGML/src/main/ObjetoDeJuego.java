@@ -8,9 +8,9 @@ import java.awt.Rectangle;
 //enemigos, el jugador, una luz, un triggerer de sonido, etc.
 public abstract class ObjetoDeJuego {
 	
-	protected int x,y;//nuestros objetos van a tener unas coordenadas en el juego
+	protected float x,y;//nuestros objetos van a tener unas coordenadas en el juego
 	protected ID id;
-	protected int velX,velY;//velocidad del objeto
+	protected float velX,velY;//velocidad del objeto
 
 	//----------------------------------------------------------------------------------------CONSTRUCTOR
 	public ObjetoDeJuego(int x,int y,ID id) {
@@ -26,7 +26,7 @@ public abstract class ObjetoDeJuego {
 	//--------------------------------------------------------------------------------------------------
 	
 	//--------------------------------------METODOS QUE NUESTROS OBJETOS NO NECESITAN(setters y getters):
-	public int getX() {//--------------------------------getX
+	public float getX() {//--------------------------------getX
 		return x;
 	}
 
@@ -34,7 +34,7 @@ public abstract class ObjetoDeJuego {
 		this.x = x;
 	}
 
-	public int getY() {//--------------------------------getY
+	public float getY() {//--------------------------------getY
 		return y;
 	}
 
@@ -50,7 +50,7 @@ public abstract class ObjetoDeJuego {
 		this.id = id;
 	}
 	
-	public int getVelX() {//--------------------------------getVelX
+	public float getVelX() {//--------------------------------getVelX
 		return velX;
 	}
 
@@ -58,7 +58,7 @@ public abstract class ObjetoDeJuego {
 		this.velX = velX;
 	}
 
-	public int getVelY() {//--------------------------------getVelY
+	public float getVelY() {//--------------------------------getVelY
 		return velY;
 	}
 

@@ -41,7 +41,7 @@ public class Rastro extends ObjetoDeJuego{
 		g2d.setComposite(desopacar(alpha));
 		
 		g.setColor(color);
-		g.fillOval(x, y, ancho, alto);
+		g.fillOval((int)x, (int)y, ancho, alto);
 		
 		g2d.setComposite(desopacar(1));
 		

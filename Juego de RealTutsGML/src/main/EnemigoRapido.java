@@ -16,13 +16,13 @@ public class EnemigoRapido extends ObjetoDeJuego{
 		super(x,y,id);
 		
 		setVelX(2);
-		setVelY(9);
+		setVelY(8);
 		
 		this.manejador = manejador;
 	}
 	
 	public Rectangle obtenerArea(){//-----------------------------------METODO OBTENERAREA (hitBox):
-		return new Rectangle(x,y,anchoE,altoE);
+		return new Rectangle((int)x,(int)y,anchoE,altoE);
 	}//--------------------------------- ---------------------------------------------------------
 	int cont = 0;
 	public void tick() {
@@ -40,13 +40,13 @@ public class EnemigoRapido extends ObjetoDeJuego{
 			velY *= -1;
 		}
 		if(cont % 3 == 0)
-		manejador.addObjeto(new Rastro(x+6,y+6,ID.Rastro,manejador,altoE/2,anchoE/2,Color.cyan,0.01f));
+		manejador.addObjeto(new Rastro((int)x+6,(int)y+6,ID.Rastro,manejador,altoE/2,anchoE/2,Color.cyan,0.01f));
 		
 	}
 
 	public void render(Graphics g) {
 		g.setColor(Color.cyan);
-		g.fillOval(x, y, anchoE, altoE);
+		g.fillOval((int)x,(int)y, anchoE, altoE);
 	}
 	
 }

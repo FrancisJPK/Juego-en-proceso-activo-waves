@@ -9,8 +9,8 @@ import java.util.Random;
 
 public class Jugador extends ObjetoDeJuego{
 	
-	private int anchoJ = 32;
-	private int altoJ = 32;
+	private int ancho = 32;
+	private int alto = 32;
 	private Handler manejador;
 	
 	public Jugador(int x, int y, ID id, Handler manejador) {
@@ -19,7 +19,7 @@ public class Jugador extends ObjetoDeJuego{
 	}
 
 	public Rectangle obtenerArea(){//-----------------------------------METODO OBTENERAREA (hitBox):
-		return new Rectangle(x,y,anchoJ,altoJ);
+		return new Rectangle((int)x,(int)y,ancho,alto);
 	}//--------------------------------- ---------------------------------------------------------
 	
 	
@@ -42,7 +42,7 @@ public class Jugador extends ObjetoDeJuego{
 		
 		colision();
 		
-		manejador.addObjeto(new Rastro(x,y,ID.Rastro,manejador,anchoJ,altoJ,Color.blue,0.05f));
+		manejador.addObjeto(new Rastro((int)x,(int)y,ID.Rastro,manejador,ancho,alto,Color.blue,0.05f));
 	}
 	
 	public void colision(){//--------------------------------------------------------METODO COLISION:
@@ -50,7 +50,7 @@ public class Jugador extends ObjetoDeJuego{
 		for (int i = 0; i < manejador.objetos.size(); i++) {
 			ObjetoDeJuego temp = manejador.objetos.get(i);
 			//si el objeto temporal actual es de tipo enemigo
-			if(temp.getId() == ID.EnemigoBasico || temp.getId() == ID.EnemigoRapido){
+			if(temp.getId() == ID.EnemigoBasico || temp.getId() == ID.EnemigoRapido || temp.getId() == ID.EnemigoInteligente){
 				//si las cajas de colisión de los dos se están chocando
 				if(obtenerArea().intersects(temp.obtenerArea())){
 					//restar 2 de vida
@@ -64,6 +64,14 @@ public class Jugador extends ObjetoDeJuego{
 	//renderizacion
 	public void render(Graphics g) {
 		g.setColor(Color.blue);
-		g.fillRect(x, y, anchoJ, altoJ);
+		g.fillRect((int)x,(int)y, ancho, alto);
+	}
+	//---------------------------------------------------------getters setters
+	public int getAncho() {
+		return ancho;
+	}
+
+	public int getAlto() {
+		return alto;
 	}
 }

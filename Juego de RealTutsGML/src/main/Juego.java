@@ -2,6 +2,7 @@ package main;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Label;
 import java.awt.image.BufferStrategy;
@@ -55,6 +56,13 @@ public class Juego extends Canvas implements Runnable{
 		//objetos de juego, spawneo de objetos
 		manejador.addObjeto(new Jugador(100,100,ID.Jugador, manejador));
 		
+		
+		manejador.addObjeto(new EnemigoBasico(400, 400, ID.EnemigoBasico, manejador));
+		manejador.addObjeto(new EnemigoRapido(400, 400, ID.EnemigoRapido, manejador));
+		manejador.addObjeto(new EnemigoInteligente(400, 400, ID.EnemigoInteligente, manejador));
+		manejador.addObjeto(new EnemigoBasico(723, 432, ID.EnemigoBasico, manejador));
+		manejador.addObjeto(new EnemigoRapido(757, 123, ID.EnemigoRapido, manejador));
+		manejador.addObjeto(new EnemigoInteligente(678, 427, ID.EnemigoInteligente, manejador));
 		
 	}//---------------------------------------------------------------------------------------------
 	
@@ -140,6 +148,19 @@ public class Juego extends Canvas implements Runnable{
 		
 		hud.render(g);
 		
+		if(hud.VIDA <=0 ){
+			hud.seguirContando = false;
+			g.setColor(Color.WHITE);
+			g.setFont(new Font("hola",23,50));
+			g.drawString("Perdiste. Puntaje:"+hud.getPuntaje(), (Juego.ANCHO/2)-250, (Juego.ALTO/2-50));
+			g.drawString("Presiona ESC para salir.", (Juego.ANCHO/2)-250, (Juego.ALTO/2+50));
+			for (int i = 0; i < manejador.objetos.size(); i++) {
+				ObjetoDeJuego temp = manejador.objetos.get(i);
+				temp.setVelX(0);
+				temp.setVelY(0);
+			}
+		}
+		
 		//------------------------------------------------------------------------------------------------
 		
 		
@@ -149,7 +170,7 @@ public class Juego extends Canvas implements Runnable{
 	
 	//---------------------------------------------------------------------METODO BARRERA:
 	//este metodo lo puede llamar un objeto que no se tenga que salir de la pantalla
-	public static int barrera(int valor,int min,int max){
+	public static float barrera(float valor,float min,float max){
 		if(valor < min){
 			return valor = min;
 		}else if(valor > max){

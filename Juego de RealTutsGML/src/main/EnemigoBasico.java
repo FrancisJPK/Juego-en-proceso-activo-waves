@@ -7,8 +7,8 @@ import java.util.Random;
 
 public class EnemigoBasico extends ObjetoDeJuego{
 
-	private int anchoE = 24;
-	private int altoE = 24;
+	private int ancho = 24;
+	private int alto = 24;
 	private Random r = new Random();
 	private Handler manejador;
 	
@@ -22,8 +22,9 @@ public class EnemigoBasico extends ObjetoDeJuego{
 	}
 	
 	public Rectangle obtenerArea(){//-----------------------------------METODO OBTENERAREA (hitBox):
-		return new Rectangle(x,y,anchoE,altoE);
+		return new Rectangle((int) x,(int) y,ancho,alto);
 	}//--------------------------------- ---------------------------------------------------------
+	
 	int cont = 0;
 	public void tick() {
 		x += velX;
@@ -40,13 +41,13 @@ public class EnemigoBasico extends ObjetoDeJuego{
 			velY *= -1;
 		}
 		if(cont % 3 == 0)
-		manejador.addObjeto(new Rastro(x+6,y+6,ID.Rastro,manejador,altoE/2,anchoE/2,Color.red,0.01f));
+		manejador.addObjeto(new Rastro((int) x+6,(int) y+6,ID.Rastro,manejador,alto/2,ancho/2,Color.red,0.01f));
 		
 	}
 
 	public void render(Graphics g) {
 		g.setColor(Color.red);
-		g.fillOval(x, y, anchoE, altoE);
+		g.fillOval((int) x,(int) y, ancho, alto);
 	}
 	
 }
