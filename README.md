@@ -3,11 +3,11 @@ Es un juego en el que el objetivo principal es esquivar enemigos el mayor tiempo
 
 |-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|UPDATES:
 
-Estado actual: ALPHA 0.0.3:
-.-Añadida la posibilidad de ganar!
-.-Añadida una bossfight final! : aquellos osados que logren llegar al nivel 20 tendrán que afrontar la furia del rey cubo durante 10 niveles, y aquellos lo suficientemente ágiles que logren llegar al nivel 30 vencerán al rey que descargó toda su energia tratando de asesinar a su contrincante!
-.-Vuelve el sistema de score y nivel, ahora los enemigos aparecerpan en funcion del nivel!
-------------anteriores updates:
+Estado actual: ALPHA 0.0.3:	
+|Añadida la posibilidad de ganar!	
+|Añadida una bossfight final! : aquellos osados que logren llegar al nivel 20 tendrán que afrontar la furia del rey cubo durante 10 niveles, y aquellos lo suficientemente ágiles que logren llegar al nivel 30 vencerán al rey que descargó toda su energia tratando de asesinar a su contrincante!
+|Vuelve el sistema de score y nivel, ahora los enemigos aparecerpan en funcion del nivel!
+----------------------------------------anteriores updates:
 ALPHA 0.0.2:
 1-Nuevo enemigo: "Enemigo "Inteligente" ", utiliza un calculo matematico para dirigirse a una velocidad moderable hacia el jugador.
 2-Añadida la posibilidad de perder , ahora cada vez que se acabe la vida los enemigos se quedaran quietos y se mostrara un mensaje.
