@@ -21,4 +21,5 @@ ALPHA 0.0.2:
 
 //---------------------------------------------------------
 ALPHA 0.0.1: 
+
 añadido sistema de puntaje. cada vez que se sumen 100 al contador de puntaje se añadira un enemigo y cada 5 niveles se añadira el nuevo enemigo "EnemigoRapido". Modificado "EnemgioBasico" y la barra de vida cambia de color :D. El rastro que dejan los objetos paso de ser cuadrado a redondo.
