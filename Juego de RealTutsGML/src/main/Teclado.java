@@ -34,6 +34,7 @@ public class Teclado extends KeyAdapter{
 				if(key == KeyEvent.VK_S) {temporal.setVelY(5); teclasPresionadas[1] = true;}//A
 				if(key == KeyEvent.VK_A) {temporal.setVelX(-5); teclasPresionadas[2] = true;}//S
 				if(key == KeyEvent.VK_D) {temporal.setVelX(5); teclasPresionadas[3] = true;}//D
+				
 			}
 		}
 		//si apretamos escape salir

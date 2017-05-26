@@ -7,5 +7,7 @@ public enum ID {
 	EnemigoBasico(),
 	Rastro(),
 	EnemigoInteligente,
-	EnemigoRapido();
+	EnemigoRapido(),
+	Jefe1(),
+	Bala();
 }

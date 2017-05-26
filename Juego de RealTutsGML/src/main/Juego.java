@@ -30,7 +30,7 @@ public class Juego extends Canvas implements Runnable{
 	
 	private Spawner spawner;
 	
-	//TEMPORAL
+	
 	public static int getAncho(){
 		return ANCHO;
 	}
@@ -54,16 +54,16 @@ public class Juego extends Canvas implements Runnable{
 		r = new Random();
 		
 		//objetos de juego, spawneo de objetos
-		manejador.addObjeto(new Jugador(100,100,ID.Jugador, manejador));
+		manejador.addObjeto(new Jugador(300,300,ID.Jugador, manejador));
 		
 		
-		manejador.addObjeto(new EnemigoBasico(400, 400, ID.EnemigoBasico, manejador));
+		/*manejador.addObjeto(new Jefe1(400, 400, ID.EnemigoBasico, manejador));
 		manejador.addObjeto(new EnemigoRapido(400, 400, ID.EnemigoRapido, manejador));
 		manejador.addObjeto(new EnemigoInteligente(400, 400, ID.EnemigoInteligente, manejador));
-		manejador.addObjeto(new EnemigoBasico(723, 432, ID.EnemigoBasico, manejador));
+		manejador.addObjeto(new Jefe1(723, 432, ID.EnemigoBasico, manejador));
 		manejador.addObjeto(new EnemigoRapido(757, 123, ID.EnemigoRapido, manejador));
 		manejador.addObjeto(new EnemigoInteligente(678, 427, ID.EnemigoInteligente, manejador));
-		
+		*/
 	}//---------------------------------------------------------------------------------------------
 	
 	//-------------------------------------------------------------------------------METODO EMPEZAR
@@ -77,7 +77,7 @@ public class Juego extends Canvas implements Runnable{
 	}//------------------------------------------------------------------------------------------
 	
 	//--------------------------------------------------------------------------------METODO PARAR
-	public synchronized void parar(){
+	public synchronized void pararHilo(){
 		try {
 			hilo.join();
 			corriendo = false;
@@ -107,7 +107,7 @@ public class Juego extends Canvas implements Runnable{
 				delta--; 
 			} 
 			
-			if(corriendo) 
+			if(corriendo && hud.VIDA > 0 && hud.getNivel() < 30) 
 				render();
 			frames++; 
 			
@@ -118,7 +118,7 @@ public class Juego extends Canvas implements Runnable{
 			frames = 0; 
 			}
 		}
-		parar();
+		pararHilo();
 	}//--------------------------------------------------------------------------------------
 	
 	//----------------------------------------------------------------------------METODO TICK
@@ -126,6 +126,13 @@ public class Juego extends Canvas implements Runnable{
 		manejador.tick();
 		hud.tick();
 		spawner.tick();
+		
+		if(hud.VIDA <= 0){
+			perder();
+		}
+		if(hud.getNivel() >= 30){
+			ganar();
+		}
 	}//---------------------------------------------------------------------------------------
 	
 	//--------------------------------------------------------------------------METODO RENDER
@@ -148,25 +155,59 @@ public class Juego extends Canvas implements Runnable{
 		
 		hud.render(g);
 		
-		if(hud.VIDA <=0 ){
-			hud.seguirContando = false;
-			g.setColor(Color.WHITE);
-			g.setFont(new Font("hola",23,50));
-			g.drawString("Perdiste. Puntaje:"+hud.getPuntaje(), (Juego.ANCHO/2)-250, (Juego.ALTO/2-50));
-			g.drawString("Presiona ESC para salir.", (Juego.ANCHO/2)-250, (Juego.ALTO/2+50));
-			for (int i = 0; i < manejador.objetos.size(); i++) {
-				ObjetoDeJuego temp = manejador.objetos.get(i);
-				temp.setVelX(0);
-				temp.setVelY(0);
-			}
-		}
-		
 		//------------------------------------------------------------------------------------------------
 		
 		
 		g.dispose();//no se que hace esto
 		bs.show();//esto muestra el sighiente buffer disponible
 	}//------------------------------------------------------------------------------------
+	
+	public void perder(){//----------------------------------------------------------METODO PERDER:
+		BufferStrategy bs = this.getBufferStrategy();
+		if(bs == null){
+			this.createBufferStrategy(2);
+			return;
+		}
+		Graphics g = bs.getDrawGraphics();
+		
+		spawner.boss = true;
+		hud.seguirContando = false;
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("hola",23,50));
+		g.drawString("Perdiste. Puntaje:"+hud.getPuntaje(), (Juego.ANCHO/2)-250, (Juego.ALTO/2-50));
+		g.drawString("Presiona ESC para salir.", (Juego.ANCHO/2)-250, (Juego.ALTO/2+50));
+		for (int i = 0; i < manejador.objetos.size(); i++) {
+			ObjetoDeJuego temp = manejador.objetos.get(i);
+			temp.setVelX(0);
+			temp.setVelY(0);
+		}
+		g.dispose();
+		bs.show();
+	}//-------------------------------------------------------------------------------
+	
+	public void ganar(){//----------------------------------------------------------METODO GANAR:
+		BufferStrategy bs = this.getBufferStrategy();
+		if(bs == null){
+			this.createBufferStrategy(2);
+			return;
+		}
+		Graphics g = bs.getDrawGraphics();
+		
+		spawner.boss = true;
+		hud.seguirContando = false;
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("hola",23,50));
+		g.drawString("§§§ GANASTE §§§. Puntaje:"+hud.getPuntaje(), (Juego.ANCHO/2)-370, (Juego.ALTO/2-50));
+		g.drawString("Presiona ESC para salir.", (Juego.ANCHO/2)-250, (Juego.ALTO/2+50));
+		for (int i = 0; i < manejador.objetos.size(); i++) {
+			ObjetoDeJuego temp = manejador.objetos.get(i);
+			temp.setVelX(0);
+			temp.setVelY(0);
+		}
+		g.dispose();
+		bs.show();
+	}//-------------------------------------------------------------------------------
+
 	
 	//---------------------------------------------------------------------METODO BARRERA:
 	//este metodo lo puede llamar un objeto que no se tenga que salir de la pantalla

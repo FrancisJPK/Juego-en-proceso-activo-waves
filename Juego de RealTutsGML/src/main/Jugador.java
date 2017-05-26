@@ -50,7 +50,7 @@ public class Jugador extends ObjetoDeJuego{
 		for (int i = 0; i < manejador.objetos.size(); i++) {
 			ObjetoDeJuego temp = manejador.objetos.get(i);
 			//si el objeto temporal actual es de tipo enemigo
-			if(temp.getId() == ID.EnemigoBasico || temp.getId() == ID.EnemigoRapido || temp.getId() == ID.EnemigoInteligente){
+			if(temp.getId() == ID.EnemigoBasico || temp.getId() == ID.EnemigoRapido || temp.getId() == ID.EnemigoInteligente || temp.getId() == ID.Jefe1 || temp.getId() == ID.Bala){
 				//si las cajas de colisión de los dos se están chocando
 				if(obtenerArea().intersects(temp.obtenerArea())){
 					//restar 2 de vida

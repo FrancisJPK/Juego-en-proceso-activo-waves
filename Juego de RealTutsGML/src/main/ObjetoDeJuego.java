@@ -54,7 +54,7 @@ public abstract class ObjetoDeJuego {
 		return velX;
 	}
 
-	public void setVelX(int velX) {//--------------------------------setVelX
+	public void setVelX(float velX) {//--------------------------------setVelX
 		this.velX = velX;
 	}
 
@@ -62,7 +62,7 @@ public abstract class ObjetoDeJuego {
 		return velY;
 	}
 
-	public void setVelY(int velY) {//--------------------------------setVelY
+	public void setVelY(float velY) {//--------------------------------setVelY
 		this.velY = velY;
 	}
 	//-------------------------------------------------------------------------------------------------

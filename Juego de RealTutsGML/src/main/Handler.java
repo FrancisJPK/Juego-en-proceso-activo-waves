@@ -56,5 +56,15 @@ public class Handler {
 	//el trabajo de añadir y remover objetos del juego nos lo facilita la linked list
 	//que todavia no conozco y tengo que aprender que es y como se usa
 	}//-------------------------------------------------------------------------------------
+
+	public void limpiarEnemigos() {
+		for (int i = 0; i < objetos.size(); i++) {
+			ObjetoDeJuego objetoTemporal = objetos.get(i);
+			if(objetoTemporal.getId() == ID.Jugador){
+				objetos.clear();
+				addObjeto(new Jugador((int)objetoTemporal.getX(),(int)objetoTemporal.getY(),ID.Jugador,this));
+			}
+		}
+	}
 	
 }
