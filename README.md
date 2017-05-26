@@ -11,6 +11,7 @@ Estado actual: ALPHA 0.0.3:
 |Vuelve el sistema de score y nivel, ahora los enemigos aparecerpan en funcion del nivel!
 
 ----------------------------------------anteriores updates:
+
 ALPHA 0.0.2:
 
 |Nuevo enemigo: "Enemigo "Inteligente" ", utiliza un calculo matematico para dirigirse a una velocidad moderable hacia el jugador.
