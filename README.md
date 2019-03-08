@@ -1,3 +1,6 @@
+Créditos a RealTutsGML. canal de youtube:
+https://www.youtube.com/user/RealTutsGML
+
 # WAVES! alpha 0.0.3
 Es un juego en el que el objetivo principal es esquivar enemigos el mayor tiempo posible. Habrá distintos tipos de enemigos y distintos niveles de dificultad. Se añadira un sistema de puntaje complejo en un futuro... Posible añadidura de multijugador en la primera release estable (no beta ni alpha) - no hay mas informacion por ahora
 
