@@ -1,7 +1,9 @@
 ```diff
--Créditos a RealTutsGML. canal de youtube:
-+https://www.youtube.com/user/RealTutsGML
-*Pueden seguir el tutorial para hacer este juego en su canal
++Créditos a RealTutsGML. canal de youtube:
+```
+https://www.youtube.com/user/RealTutsGML<br>
+```diff
++Pueden seguir el tutorial para hacer este juego en su canal*
 ```
 # WAVES! alpha 0.0.3:<br>
 Es un juego en el que el objetivo principal es esquivar enemigos el mayor tiempo posible. Habrá distintos tipos de enemigos y distintos niveles de dificultad.<br>
